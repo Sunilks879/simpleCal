@@ -95,27 +95,18 @@ public class CalculatorApplicationTests {
 
 
     /**
-     * Division by Zero exception
-     *
-     * @throws Exception
-     */
-    @Test
-    public void divideByZero_Exception() throws Exception {
-        try {
-            calculatorRestController.divide(12, 0);
-            fail("Expected this to throw IllegalArgumentException");
-        } catch (IllegalArgumentException e) {
-            // This is what we expect
-        }
-    }
-
-    /**
      * Division of numbers
      *
      * @throws Exception
      */
     @Test
     public void divide_number() throws Exception {
+        try {
+            calculatorRestController.divide(12, 0);
+            fail("Expected this to throw IllegalArgumentException");
+        } catch (IllegalArgumentException e) {
+            // This is what we expect
+        }
         long result = 100 / 3 / 2;
         assertEquals(result, calculatorRestController.divide(100, 3, 2));
         result = 0;

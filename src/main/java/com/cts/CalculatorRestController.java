@@ -30,12 +30,14 @@ public class CalculatorRestController {
     }
 
     @GetMapping("/divide")
-    public long divide(@RequestParam long... operands)throws IllegalArgumentException {
+    @ExceptionHandler(IllegalArgumentException.class)
+    public long divide(@RequestParam long... operands){
         return mathOperator.divide(operands);
     }
 
     @GetMapping("/power")
-    public long pow(@RequestParam long... operands)throws IllegalArgumentException {
+    @ExceptionHandler(IllegalArgumentException.class)
+    public long pow(@RequestParam long... operands) {
         return mathOperator.pow(operands);
     }
 //

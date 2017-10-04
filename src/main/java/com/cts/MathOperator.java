@@ -34,7 +34,7 @@ public class MathOperator implements Adder, Subtractor, Multiplier, Divider, Pow
     }
 
     @Override
-    public long divide(long... operands)throws IllegalArgumentException {
+    public long divide(long... operands) {
         long ret = operands[0];
         for (int aa = 1; aa < operands.length; aa++) {
             if(operands[aa] == 0){
