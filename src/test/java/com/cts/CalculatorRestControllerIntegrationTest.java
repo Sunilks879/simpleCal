@@ -3,7 +3,9 @@ package com.cts;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -12,34 +14,26 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(CalculatorRestController.class)
+@SpringBootTest
+@AutoConfigureMockMvc
 public class CalculatorRestControllerIntegrationTest {
     @Autowired
     private MockMvc mockMvc;
 
+    @Autowired
+    private MathOperator mathOperator;
+
     @Test
     public void add_positive_number() throws Exception {
-        int num1=10;
-        int num2=15;
-        mockMvc.perform(get("/calculator/add?num1="+num1+"&num2="+num2))
+        mockMvc.perform(get("/calculator/add?operands=" + 10 + "," + 15))
                 .andExpect(content().string("25"))
                 .andExpect(status().is2xxSuccessful());
     }
 
     @Test
     public void add_positive_number_with_negative_number() throws Exception {
-        int num1=10;
-        int num2=-15;
-        mockMvc.perform(get("/calculator/add?num1="+num1+"&num2="+num2))
-                .andExpect(content().string("-5"))
-                .andExpect(status().is2xxSuccessful());
-    }
-    @Test
-    public void add_negative_number() throws Exception {
-        int num1=-1;
-        int num2=-2;
-        mockMvc.perform(get("/calculator/add?num1="+num1+"&num2="+num2))
-                .andExpect(content().string("-3"))
+        mockMvc.perform(get("/calculator/add?operands=" + 10 + "," + 14 + "," + (-28)))
+                .andExpect(content().string("-4"))
                 .andExpect(status().is2xxSuccessful());
     }
 }

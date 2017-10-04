@@ -1,54 +1,64 @@
 package com.cts;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/calculator")
 public class CalculatorRestController {
 
+    private MathOperator mathOperator;
+
+    @Autowired
+    public CalculatorRestController(MathOperator mathOperator) {
+        this.mathOperator = mathOperator;
+    }
+
     @GetMapping("/add")
-    public int add(@RequestParam int num1, @RequestParam int num2) {
-        return num1 + num2;
+    public long add(@RequestParam long... operands) {
+        return mathOperator.add(operands);
     }
 
     @GetMapping("/subtract")
-    public int subtract(@RequestParam int num1, @RequestParam int num2) {
-        return num1 - num2;
+    public long subtract(@RequestParam long... operands) {
+        return mathOperator.subtract(operands);
     }
 
     @GetMapping("/multiply")
-    public int multiply(@RequestParam int num1, @RequestParam int num2) {
-        return num1 * num2;
+    public long multiply(@RequestParam long... operands) {
+        return mathOperator.multiply(operands);
     }
 
     @GetMapping("/divide")
-    public int divide(@RequestParam int num1, @RequestParam int num2) {
-        if (num2 == 0) {
-            throw new IllegalArgumentException("num2 must not be zero");
-        }
-        return num1 / num2;
+    public long divide(@RequestParam long... operands)throws IllegalArgumentException {
+        return mathOperator.divide(operands);
     }
 
-    @GetMapping("/reverse")
-    public String reverse(@RequestParam String str) {
-        if (str == null || str.isEmpty()) {
-            return str;
-        }
-        char[] characters = str.toCharArray();
-        int i = 0;
-        int j = characters.length - 1;
-        while (i < j) {
-            swap(characters, i, j);
-            i++;
-            j--;
-        }
-        return new String(characters);
+    @GetMapping("/power")
+    public long pow(@RequestParam long... operands)throws IllegalArgumentException {
+        return mathOperator.pow(operands);
     }
-
-    private void swap(char[] str, int i, int j) {
-        char temp = str[i];
-        str[i] = str[j];
-        str[j] = temp;
-    }
+//
+//    @GetMapping("/reverse")
+//    public String reverse(@RequestParam String str) {
+//        if (str == null || str.isEmpty()) {
+//            return str;
+//        }
+//        char[] characters = str.toCharArray();
+//        int i = 0;
+//        int j = characters.length - 1;
+//        while (i < j) {
+//            swap(characters, i, j);
+//            i++;
+//            j--;
+//        }
+//        return new String(characters);
+//    }
+//
+//    private void swap(char[] str, int i, int j) {
+//        char temp = str[i];
+//        str[i] = str[j];
+//        str[j] = temp;
+//    }
 
 }
