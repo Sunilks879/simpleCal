@@ -36,7 +36,7 @@ mvn test -Dtest=SmokeTest -pl mathoperator-app
 
 # UI flow for Division
 ## Home Page
-![Home Page](images/homepage.png)
+![Home Page](/images/homepage.png)
 ## Count
 Value provided here will indicate how many numbers we need to consider to perform the operation
 ![Count](images/page-2.png)
