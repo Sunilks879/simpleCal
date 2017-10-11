@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Simple Calculator</title>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+
+<body>
+<div th:replace="fragments/header :: header"/>
+<div class="container">
+    <div class="starter-template">
+        <h1>Simple Calculator</h1>
+        <hr/>
+        <h2>Choice of Operations</h2>
+        <hr/>
+        <h3>1. <a th:href="@{/addition/count}">Addition</a></h3>
+        <h3>2. <a th:href="@{/subtraction/count}">Subtraction</a></h3>
+        <h3>3. <a th:href="@{/multiplication/count}">Multiplication</a></h3>
+        <h3>4. <a th:href="@{/division/count}">Division</a></h3>
+        <h3>5. <a th:href="@{/power/count}">Power</a></h3>
+    </div>
+</div>
+<!-- /.container -->
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>

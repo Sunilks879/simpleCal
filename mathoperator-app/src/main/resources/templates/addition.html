@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Simple Calculator</title>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+
+<body>
+<div th:replace="fragments/header :: header"/>
+<div class="container">
+    <div class="starter-template">
+        <h1>Simple Calculator</h1>
+        <hr/>
+    </div>
+    <form th:action="@{/add}" method="get">
+        <fieldset>
+            <th:block th:each="i: ${#numbers.sequence(1, count)}">
+                <div class="form-group">
+                    <b>Number-</b><label th:text="${i}"/><input type="text" name="operands"
+                                                                    class="form-control input-lg" required="required"/>
+                </div>
+            </th:block>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <input type="submit" class="btn btn-lg btn-primary btn-block" value="Add"/>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<!-- /.container -->
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Simple Calculator</title>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+
+<body>
+<div th:replace="fragments/header :: header"/>
+<div class="container">
+    <div class="starter-template">
+        <h1>Simple Calculator</h1>
+        <hr/>
+    </div>
+    <th:block>
+        <h3><p th:text="${resultText}">Text</p></h3>
+        <hr/>
+        <h2><p th:text="${resultValue}">Result</p></h2>
+        <hr/>
+    </th:block>
+
+</div>
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>

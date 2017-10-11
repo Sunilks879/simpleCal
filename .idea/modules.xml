@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/calculator.iml" filepath="$PROJECT_DIR$/calculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mathoperator-app/mathoperator-app.iml" filepath="$PROJECT_DIR$/mathoperator-app/mathoperator-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mathoperator-service/mathoperator-service.iml" filepath="$PROJECT_DIR$/mathoperator-service/mathoperator-service.iml" />
     </modules>
   </component>
 </project>
