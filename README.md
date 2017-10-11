@@ -1,16 +1,47 @@
 # simpleCal
-Simple application which has basic calculator functionality like Add, Subtract, Multiplication, Division and Power.
-All the API take multiple parameter. We can pass any number of paramaters
+Simple Calculator consists of 2 modules
+1.  mathoperator-app : this is the UI component
+2.  mathoperator-service : the core service which has the business logic
+
+# Buildng the application
+Execute the below command at root folder level
+``mvn clean package -DskipTests``
+-DskipTests is needed to skip the test written in ``mathopeator-app``
+as that test cases are to test end-to-end (Smoke Test)
+
+# Unit testing mathoperator-service
+Execute this command ``mvn test -Dtest=CalculatorRestControllerTest -pl mathoperator-service`` for executing unit test for the 
+``CalculatorRestController.java``. We have mocked the Service layer when we execute the unit test for Rest Controller
+
+Execute this command ``mvn test -Dtest=MathOperatorTest -pl mathoperator-service`` for executing the unit test written for ``MathOperator.java``
+
+# Testing from UI
+Launch both the applications. 
+```text
+for launching mathoperator-app
+java -jar mathoperator-app\target\mathoperator-app-0.0.1-SNAPSHOT.jar
 ```
-For E.g: public long add(@RequestParam long... operands){ }
-```
-When invoked from jUnit we can pass 
-```
-add(10, 15, 10) or add(-10, 10) or add(10, 23, -1, 16)
+```text
+for launching mathoperator-service
+java -jar mathoperator-service\target\mathoperator-service-0.0.1-SNAPSHOT.jar
 ```
 
-## Unit test
-Unit tests are written and is available in CalculatorApplicationTests.java
+UI will be accessible at  ``http://localhost:8181``
 
-## Integration Test
-Itegration test cases for few only has been written, and are available in CalculatorRestControllerIntegrationTest.java
+# Executing the Smoketest (End-to-End)
+When ``mathoperator-app`` and ``mathoperator-service`` are running execute below command
+```text
+mvn test -Dtest=SmokeTest -pl mathoperator-app
+```
+
+# UI flow for Division
+![Homepage](images/homepage.png)
+![Count](images/page-2.png)
+![Division](images/page-3.png)
+![Exception](images/page-4.png)
+![Exception](images/page-5.png)
+![Success](images/page-6.png)
+![Success](images/page-7.png)
+
+
+
