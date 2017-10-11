@@ -35,7 +35,7 @@ mvn test -Dtest=SmokeTest -pl mathoperator-app
 ```
 
 # UI flow for Division
-![Homepage](images/homepage.png)
+![Homepage](/images/homepage.png)
 ![Count](images/page-2.png)
 ![Division](images/page-3.png)
 ![Exception](images/page-4.png)
