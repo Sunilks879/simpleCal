@@ -36,21 +36,21 @@ mvn test -Dtest=SmokeTest -pl mathoperator-app
 
 # UI flow for Division
 ## Home Page
-![Home Page](/images/homepage.png)
+![Home Page](/images/homepage.PNG)
 ## Count
 Value provided here will indicate how many numbers we need to consider to perform the operation
-![Count](images/page-2.png)
+![Count](images/page-2.PNG)
 ## Division
 If the value selected is 2 in previous step then we will have 2 text box
-![Division](images/page-3.png)
+![Division](images/page-3.PNG)
 ## Exception
 We cannot perform division by Zero. In case we provide we would have exception
-![Exception](images/page-4.png)
-![Exception](images/page-5.png)
+![Exception](images/page-4.PNG)
+![Exception](images/page-5.PNG)
 ## Success
 If proper values are passed we will have success response
-![Success](images/page-6.png)
-![Success](images/page-7.png)
+![Success](images/page-6.PNG)
+![Success](images/page-7.PNG)
 
 
 
