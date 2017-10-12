@@ -1,10 +1,11 @@
 # simpleCal
-Simple Calculator consists of 2 modules
+Simple Calculator consists of 2 Services
 1.  mathoperator-app : this is the UI component
 2.  mathoperator-service : the core service which has the business logic
 
 # Buildng the application
-Execute the below command at root folder level
+Download the code to local directory with ``git clone https://github.com/Sunilks879/simpleCal.git``. Import the project to an IDE (Intellij was used to create this application). 
+Once the code has been imported execute the below command at root folder level
 ``mvn clean package -DskipTests``
 -DskipTests is needed to skip the test written in ``mathopeator-app``
 as that test cases are to test end-to-end (Smoke Test)
