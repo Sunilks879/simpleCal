@@ -4,39 +4,25 @@ import com.cts.commands.*;
 import com.cts.exception.DivisionByZeroException;
 import com.cts.exception.NegativePowerException;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import java.util.List;
+import java.util.stream.LongStream;
 
 @Service
 public class MathOperator implements Adder, Subtractor, Multiplier, Divider, Power {
 
     @Override
     public long add(long... operands) {
-        long ret = operands[0];
-        for (int aa = 1; aa < operands.length; aa++) {
-            ret += operands[aa];
-        }
-        return ret;
+        return LongStream.of(operands).reduce((l, r) -> l + r).getAsLong();
     }
 
     @Override
     public long subtract(long... operands) {
-        long ret = operands[0];
-        for (int aa = 1; aa < operands.length; aa++) {
-            ret -= operands[aa];
-        }
-        return ret;
+        return LongStream.of(operands).reduce((l, r) -> l - r).getAsLong();
     }
 
     @Override
     public long multiply(long... operands) {
-        long ret = operands[0];
-        for (int aa = 1; aa < operands.length; aa++) {
-            ret *= operands[aa];
-        }
-        return ret;
+        return LongStream.of(operands).reduce((l, r) -> l * r).getAsLong();
     }
 
     @Override
