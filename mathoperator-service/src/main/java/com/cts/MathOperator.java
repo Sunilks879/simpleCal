@@ -26,19 +26,18 @@ public class MathOperator implements Adder, Subtractor, Multiplier, Divider, Pow
     }
 
     @Override
-    public long divide(long... operands)throws DivisionByZeroException {
-        long ret = operands[0];
-        for (int aa = 1; aa < operands.length; aa++) {
-            if(operands[aa] == 0){
-                throw new DivisionByZeroException("Division By Zero is not possible");
-            }
-            ret /= operands[aa];
+    public long divide(long... operands) throws DivisionByZeroException {
+        Long result = 0L;
+        try {
+            result = LongStream.of(operands).reduce((l, r) -> l / r).getAsLong();
+        } catch (ArithmeticException ex) {
+            throw new DivisionByZeroException("Division By Zero is not possible");
         }
-        return ret;
+        return result;
     }
 
     @Override
-    public long pow(long... operands)throws NegativePowerException {
+    public long pow(long... operands) throws NegativePowerException {
         long ret = operands[0];
         for (int aa = 1; aa < operands.length; aa++) {
             long base = ret;
