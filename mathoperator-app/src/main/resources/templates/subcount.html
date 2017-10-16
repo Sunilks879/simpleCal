@@ -15,7 +15,8 @@
     <form th:action="@{/subtraction}" method="get">
         <fieldset>
             <div class="form-group">
-                <b><label th:text="${resultText}"/></b><input type="number" name="count" class="form-control input-lg" required="required"/>
+                <b><label th:text="${resultText}"/></b><input type="number" name="count" class="form-control input-lg"
+                                                              required="required" min="1"/>
             </div>
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
